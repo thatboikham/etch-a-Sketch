@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    display: flex;
+    width: 160px;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.card{
+    width: 16px;
+    height: 16px;
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.prompt{
+    background-color: #488bdb;
+    border: none;
+    font-size: 10px;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 2px;
+}
