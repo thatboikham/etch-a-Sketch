@@ -38,16 +38,16 @@ function getNumberofSquares(squares){
 box_div.appendChild(btn)
 box_div.appendChild(container)
 
-const card_div = Array.from(document.querySelectorAll('.card'))
 
 function hoveringEffect(e){
     this.classList.add('red')
 }
-card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
-
 btn.addEventListener('click', () => {
     const NoOfSquares = promptNumSquares();
     if(NoOfSquares !== -1){
         getNumberofSquares(NoOfSquares)
+        const card_div = Array.from(document.querySelectorAll('.card'))
+        card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
+
     }
 })
