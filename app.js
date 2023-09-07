@@ -42,11 +42,15 @@ box_div.appendChild(container)
 function hoveringEffect(e){
     this.classList.add('red')
 }
+function deleteExistingDIvs(){
+    container.innerHTML = "";
+}
 btn.addEventListener('click', () => {
     const NoOfSquares = promptNumSquares();
     if(NoOfSquares !== -1){
-        getNumberofSquares(NoOfSquares)
-        const card_div = Array.from(document.querySelectorAll('.card'))
+        deleteExistingDIvs();
+        getNumberofSquares(NoOfSquares);
+        const card_div = Array.from(document.querySelectorAll('.card'));
         card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
 
     }
