@@ -13,19 +13,25 @@ function promptNumSquares(){
     var squares = prompt("entere number of squares you want")
     console.log(squares)
     let max = 100;
-    if(isNaN(squares) === true) alert(`${squares} is not a number`)
+    if(isNaN(squares) === true) {
+        alert(`${squares} is not a number`)
+        return -1;
+    } 
     else if(squares > max){
         alert(`number ${squares} is more than 100`)
+        return -1;
     }else{
-        return squares;
+        return parseInt(squares);
     }
     
 }
-    for(let i = 0; i < 120; i++){
-        let smallDivs = document.createElement('div');
-        smallDivs.classList.add('card');
-        container.appendChild(smallDivs);
+
+function getNumberofSquares(squares){
+    for(let i = 0; i < squares; i++){
+        container.children += '<div class = "card"></div>';
     }
+    getNumberofSquares(squares)
+}
 
 
 box_div.appendChild(btn)
