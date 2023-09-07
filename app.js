@@ -28,9 +28,10 @@ function promptNumSquares(){
 
 function getNumberofSquares(squares){
     for(let i = 0; i < squares; i++){
-        container.children += '<div class = "card"></div>';
+        smallDiv = document.createElement('div')
+        smallDiv.classList.add('card')
+        container.appendChild(smallDiv)
     }
-    getNumberofSquares(squares)
 }
 
 
@@ -44,4 +45,9 @@ function hoveringEffect(e){
 }
 card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
 
-btn.addEventListener('click', promptNumSquares)
+btn.addEventListener('click', () => {
+    const NoOfSquares = promptNumSquares();
+    if(NoOfSquares !== -1){
+        getNumberofSquares(NoOfSquares)
+    }
+})
