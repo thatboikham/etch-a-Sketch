@@ -2,11 +2,13 @@ const page_body = document.querySelector('body')
 const container = document.createElement('div')
 const btn = document.createElement('button')
 const box_div = document.createElement('div')
+content_div = document.createElement('div')
 page_body.appendChild(box_div)
 
 btn.classList.add('prompt')
 container.classList.add('main')
 box_div.classList.add('box')
+content_div.classList.add('content')
 btn.innerHTML = 'button'
 
 function promptNumSquares(){
@@ -34,8 +36,8 @@ function getNumberofSquares(squares){
     }
 }
 
-
-box_div.appendChild(btn)
+box_div.appendChild(content_div)
+content_div.appendChild(btn)
 box_div.appendChild(container)
 
 
@@ -49,7 +51,7 @@ btn.addEventListener('click', () => {
     const NoOfSquares = promptNumSquares();
     if(NoOfSquares !== -1){
         deleteExistingDIvs();
-        getNumberofSquares(NoOfSquares);
+        getNumberofSquares(NoOfSquares * 2);
         const card_div = Array.from(document.querySelectorAll('.card'));
         card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
 
