@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Libre+Baskerville:wght@700&family=Pacifico&family=Public+Sans:wght@700&family=Roboto:wght@300&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: center;
+    font-family: 'Public Sans', sans-serif;
+    padding: 8px;
+    font-size: 30px;
 }
 .main{
     display: flex;
