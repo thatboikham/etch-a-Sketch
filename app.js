@@ -3,25 +3,30 @@ const page_body = document.querySelector('body')
 const container = document.createElement('div')
 const btn = document.createElement('button')
 const box_div = document.createElement('div')
-content_div = document.createElement('div')
-header_h1 = document.createElement('header')
-content_p = document.createElement('p')
-content_eraseP = document.createElement('p')
-content_eraseBtn = document.createElement('button')
+const content_div = document.createElement('div')
+const promPt_div = document.createElement('div')
+const erase_div = document.createElement('div')
+const rainbow_div = document.createElement('div')
+const header_h1 = document.createElement('header')
+const content_eraseBtn = document.createElement('button')
+const content_rainbowBtn = document.createElement('button')
 page_body.appendChild(box_div)
 
 //add class list for the DOM elements
 btn.classList.add('btn')
 content_eraseBtn.classList.add('btn')
+content_rainbowBtn.classList.add('btn')
 container.classList.add('main')
 box_div.classList.add('box')
 content_div.classList.add('content')
+rainbow_div.classList.add('raindow')
+erase_div.classList.add('erase')
+promPt_div.classList.add('prompt')
 //add content to the Dom elements
-btn.innerHTML = 'button'
-content_eraseBtn.innerHTML = 'erase'
+btn.innerHTML = 'click to get started'
+content_eraseBtn.innerHTML = ' toggle erase'
+content_rainbowBtn.innerHTML = 'toggole Rainbow'
 header_h1.innerHTML = 'Draw What on you mind Today'
-content_p.innerHTML = 'click the the button below to set up your workspace and begin drawing'
-content_eraseP.innerHTML = 'click erase to start over'
 
 function promptNumSquares() {
     var squares = prompt("entere number of squares you want")
@@ -49,15 +54,22 @@ function getNumberofSquares(squares) {
 }
 page_body.insertBefore(header_h1, box_div)
 box_div.appendChild(content_div)
-content_div.appendChild(btn)
+promPt_div.appendChild(btn)
+content_div.appendChild(promPt_div)
+content_div.appendChild(erase_div)
+erase_div.appendChild(content_eraseBtn)
+content_div.appendChild(rainbow_div)
+rainbow_div.appendChild(content_rainbowBtn)
 box_div.appendChild(container)
-content_div.insertBefore(content_p, btn)
-content_div.appendChild(content_eraseP)
-content_div.appendChild(content_eraseBtn)
 
 
 function hoveringEffect(e) {
     this.classList.add('red')
+}
+function rainbowEffect(e){
+    const rainbow_colors = ['#e81416',' #ffa500','#faeb36','#79c314','#487de7','#4b369d','#70369d']
+    const randomColor = rainbow_colors[Math.floor(Math.random() * rainbow_colors.length)]
+    console.log(e.style)
 }
 function removeHoveringEffect(e) {
     console.log(e)
@@ -80,3 +92,4 @@ content_eraseBtn.addEventListener('click', () => {
     const removeCLass = Array.from(document.querySelectorAll('.card'));
     removeCLass.forEach((card) => card.addEventListener('mouseover', removeHoveringEffect));
 })
+content_rainbowBtn.addEventListener('click',rainbowEffect)
