@@ -28,7 +28,7 @@ promPt_div.classList.add('prompt')
 btn.innerHTML = 'click to get started'
 content_eraseBtn.innerHTML = ' toggle erase'
 content_rainbowBtn.innerHTML = 'toggole Rainbow'
-header_h1.innerHTML = 'Draw What on you mind Today'
+header_h1.innerHTML = 'Etch-A-Sketch'
 
 function promptNumSquares() {
     var squares = prompt("entere number of squares you want")
