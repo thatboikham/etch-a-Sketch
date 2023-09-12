@@ -14,11 +14,15 @@ header{
     color: #ffffff;
     margin-bottom: 20px;
 }
-.main{
+.grid{
     display: flex;
     width: 160px;
     flex-wrap: wrap;
     align-items: center;
+}
+.main{
+    background-color: red;
+    border: 2px solid white;
 }
 .card{
     width: 16px;
