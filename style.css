@@ -21,7 +21,9 @@ header{
     align-items: center;
 }
 .main{
-    background-color: red;
+    background-color: #c3beca;
+    width: 600px;
+    height: 350px;
     border: 2px solid white;
 }
 .card{
