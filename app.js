@@ -68,6 +68,15 @@ function rainbowEffect(e){
 function removeHoveringEffect(e) {
     this.classList.remove('white')
 }
+function toggleClass(){
+    const buttons = document.querySelectorAll("button")
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () =>{
+                btn.classList.toggle("toggleEffect")
+            })
+        })
+}
+toggleClass()
 
 var flag = false;
 
@@ -88,7 +97,6 @@ function toggleErase(){
 }
 const eraseBtn = document.querySelector('#erase')
 eraseBtn.addEventListener('click', () => {
-    toggleClass()
     if(eraseing){
         cells.forEach(cell => {
             cell.addEventListener("mouseover", () => {
