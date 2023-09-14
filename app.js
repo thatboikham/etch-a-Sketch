@@ -7,9 +7,11 @@ const content_div = document.createElement('div')
 const promPt_div = document.createElement('div')
 const erase_div = document.createElement('div')
 const rainbow_div = document.createElement('div')
+const clear_div = document.createElement('div')
 const main_div = document.createElement('div')
 const header_h1 = document.createElement('header')
 const content_eraseBtn = document.createElement('button')
+const content_clear = document.createElement('button')
 const content_rainbowBtn = document.createElement('button')
 page_body.appendChild(box_div)
 
@@ -17,6 +19,7 @@ page_body.appendChild(box_div)
 btn.classList.add('btn')
 content_eraseBtn.classList.add('btn')
 content_rainbowBtn.classList.add('btn')
+content_clear.classList.add('btn')
 container.classList.add('grid')
 main_div.classList.add('main')
 box_div.classList.add('box')
@@ -27,9 +30,11 @@ promPt_div.classList.add('prompt')
 //add id for the button elements
 content_eraseBtn.setAttribute("id", "erase")
 content_rainbowBtn.setAttribute("id", "randomColor")
+content_clear.setAttribute("id", "clear")
 //add content to the Dom elements
 btn.innerHTML = 'click to get started'
 content_eraseBtn.innerHTML = ' toggle erase'
+content_clear.innerHTML = 'clear'
 content_rainbowBtn.innerHTML = 'toggole Rainbow'
 header_h1.innerHTML = 'Etch-A-Sketch'
 
@@ -48,9 +53,11 @@ box_div.appendChild(main_div)
 promPt_div.appendChild(btn)
 content_div.appendChild(promPt_div)
 content_div.appendChild(erase_div)
+content_div.appendChild(clear_div)
 erase_div.appendChild(content_eraseBtn)
 content_div.appendChild(rainbow_div)
 rainbow_div.appendChild(content_rainbowBtn)
+content_div.appendChild(content_clear)
 main_div.appendChild(container)
 
 function rainbowEffect(e){
@@ -59,7 +66,7 @@ function rainbowEffect(e){
     console.log(e.style)
 }
 function removeHoveringEffect(e) {
-    this.classList.remove('red')
+    this.classList.remove('white')
 }
 
 var flag = false;
@@ -70,11 +77,34 @@ var flag = false; //Here, I think it should be var, not let.
 window.onmouseup = () => { flag = false; }
 
 cells.forEach(cell => {
-    cell.onmouseover = () => { if(flag) cell.style.backgroundColor="white"; }
-    cell.onmousedown = () => { cell.style.backgroundColor="white"; flag = true; }                  
+    cell.onmouseover = () => { if(flag) cell.classList.add('white'); }
+    cell.onmousedown = () => { cell.classList.add('white'); flag = true; }                  
 });
 
 //toggle earse button 
-const eraseBtn = document.querySelector('.erase')
-console.log(eraseBtn.terge)
+let eraseing = false;
+function toggleErase(){
+    eraseing = !eraseing;
+}
+const eraseBtn = document.querySelector('#erase')
+eraseBtn.addEventListener('click', () => {
+    toggleClass()
+    if(eraseing){
+        cells.forEach(cell => {
+            cell.addEventListener("mouseover", () => {
+            cell.classList.remove("white") 
+            })           
+        });
+    }else{
+        cells.forEach(cell => {
+            cell.addEventListener("mouseover", () => {
+            cell.classList.remove("white") 
+            })           
+        });
+    }
+});
 
+const clearCell = document.querySelector('#clear')
+clearCell.addEventListener('click', () => {
+    cells.forEach(cell => {cell.classList.remove("white")})
+})
