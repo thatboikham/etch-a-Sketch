@@ -24,6 +24,9 @@ content_div.classList.add('content')
 rainbow_div.classList.add('rainbow')
 erase_div.classList.add('erase')
 promPt_div.classList.add('prompt')
+//add id for the button elements
+content_eraseBtn.setAttribute("id", "erase")
+content_rainbowBtn.setAttribute("id", "randomColor")
 //add content to the Dom elements
 btn.innerHTML = 'click to get started'
 content_eraseBtn.innerHTML = ' toggle erase'
@@ -56,13 +59,8 @@ function rainbowEffect(e){
     console.log(e.style)
 }
 function removeHoveringEffect(e) {
-    console.log(e)
     this.classList.remove('red')
 }
-function deleteExistingDIvs() {
-    container.innerHTML = "";
-}
-
 
 var flag = false;
 
@@ -75,3 +73,8 @@ cells.forEach(cell => {
     cell.onmouseover = () => { if(flag) cell.style.backgroundColor="white"; }
     cell.onmousedown = () => { cell.style.backgroundColor="white"; flag = true; }                  
 });
+
+//toggle earse button 
+const eraseBtn = document.querySelector('.erase')
+console.log(eraseBtn.terge)
+
