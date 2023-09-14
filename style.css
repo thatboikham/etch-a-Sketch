@@ -15,23 +15,18 @@ header{
     margin-bottom: 20px;
 }
 .grid{
-    display: flex;
-    width: 160px;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(32, 16px);
 }
 .main{
-    background-color: #c3beca;
-    width: 600px;
-    height: 350px;
-    border: 2px solid white;
+    border: 1px solid white;
 }
 .card{
     width: 16px;
     height: 16px;
     background-color: black;
 }
-.red{
+.white{
     background-color: white;
 }
 .btn{
@@ -46,9 +41,15 @@ header{
 }
 .box{
     display: flex;
-    gap: 16px;
+    gap: 50px;
 }
 .content{
     width: 200px;
     margin-left: 8px;
+    background-color: #353535;
+}
+.rainbow,
+.erase,
+.prompt{
+    background-color: #353535;
 }

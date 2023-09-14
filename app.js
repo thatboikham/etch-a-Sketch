@@ -21,7 +21,7 @@ container.classList.add('grid')
 main_div.classList.add('main')
 box_div.classList.add('box')
 content_div.classList.add('content')
-rainbow_div.classList.add('raindow')
+rainbow_div.classList.add('rainbow')
 erase_div.classList.add('erase')
 promPt_div.classList.add('prompt')
 //add content to the Dom elements
@@ -30,30 +30,15 @@ content_eraseBtn.innerHTML = ' toggle erase'
 content_rainbowBtn.innerHTML = 'toggole Rainbow'
 header_h1.innerHTML = 'Etch-A-Sketch'
 
-function promptNumSquares() {
-    var squares = prompt("entere number of squares you want")
-    console.log(squares)
-    let max = 100;
-    if (isNaN(squares) === true) {
-        alert(`${squares} is not a number`)
-        return -1;
-    }
-    else if (squares > max) {
-        alert(`number ${squares} is more than 100`)
-        return -1;
-    } else {
-        return parseInt(squares);
-    }
-
-}
-
-function getNumberofSquares(squares) {
-    for (let i = 0; i < squares; i++) {
+function getNumberofSquares() {
+    for (let i = 0; i < 576; i++) {
         smallDiv = document.createElement('div')
         smallDiv.classList.add('card')
         container.appendChild(smallDiv)
     }
 }
+getNumberofSquares()
+
 page_body.insertBefore(header_h1, box_div)
 box_div.appendChild(content_div)
 box_div.appendChild(main_div)
@@ -65,10 +50,6 @@ content_div.appendChild(rainbow_div)
 rainbow_div.appendChild(content_rainbowBtn)
 main_div.appendChild(container)
 
-
-function hoveringEffect(e) {
-    this.classList.add('red')
-}
 function rainbowEffect(e){
     const rainbow_colors = ['#e81416',' #ffa500','#faeb36','#79c314','#487de7','#4b369d','#70369d']
     const randomColor = rainbow_colors[Math.floor(Math.random() * rainbow_colors.length)]
@@ -81,18 +62,16 @@ function removeHoveringEffect(e) {
 function deleteExistingDIvs() {
     container.innerHTML = "";
 }
-btn.addEventListener('click', () => {
-    const NoOfSquares = promptNumSquares();
-    if (NoOfSquares !== -1) {
-        deleteExistingDIvs();
-        getNumberofSquares(NoOfSquares * 2);
-        const card_div = Array.from(document.querySelectorAll('.card'));
-        card_div.forEach((card) => card.addEventListener('mouseover', hoveringEffect));
 
-    }
-})
-content_eraseBtn.addEventListener('click', () => {
-    const removeCLass = Array.from(document.querySelectorAll('.card'));
-    removeCLass.forEach((card) => card.addEventListener('mouseover', removeHoveringEffect));
-})
-content_rainbowBtn.addEventListener('click',rainbowEffect)
+
+var flag = false;
+
+const cells = Array.from(document.querySelectorAll('.card'));
+var flag = false; //Here, I think it should be var, not let.
+
+window.onmouseup = () => { flag = false; }
+
+cells.forEach(cell => {
+    cell.onmouseover = () => { if(flag) cell.style.backgroundColor="white"; }
+    cell.onmousedown = () => { cell.style.backgroundColor="white"; flag = true; }                  
+});
