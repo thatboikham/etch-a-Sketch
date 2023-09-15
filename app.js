@@ -81,34 +81,38 @@ toggleClass()
 var flag = false;
 
 const cells = Array.from(document.querySelectorAll('.card'));
-var flag = false; //Here, I think it should be var, not let.
+var flag = false;
 
 window.onmouseup = () => { flag = false; }
-
-cells.forEach(cell => {
-    cell.onmouseover = () => { if(flag) cell.classList.add('white'); }
-    cell.onmousedown = () => { cell.classList.add('white'); flag = true; }                  
-});
+function sketching(){
+    cells.forEach(cell => {
+        cell.onmouseover = () => { if(flag) cell.classList.add('white'); }
+        cell.onmousedown = () => { cell.classList.add('white'); flag = true; }                  
+    });
+}
+sketching();
 
 //toggle earse button 
 let eraseing = false;
-function toggleErase(){
-    eraseing = !eraseing;
-}
+
 const eraseBtn = document.querySelector('#erase')
 eraseBtn.addEventListener('click', () => {
+    eraseing = !eraseing;
+
+    cells.forEach(cell => {
+        cell.onmouseover = null;
+        cell.onmousedown = null;                 
+    });
+
     if(eraseing){
         cells.forEach(cell => {
-            cell.addEventListener("mouseover", () => {
-            cell.classList.remove("white") 
-            })           
+            cell.onmouseover = () => { cell.classList.remove('white'); }       
         });
     }else{
         cells.forEach(cell => {
-            cell.addEventListener("mouseover", () => {
-            cell.classList.remove("white") 
-            })           
+            cell.mouseover = null;   
         });
+        sketching();
     }
 });
 
