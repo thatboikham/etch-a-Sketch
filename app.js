@@ -118,5 +118,6 @@ eraseBtn.addEventListener('click', () => {
 
 const clearCell = document.querySelector('#clear')
 clearCell.addEventListener('click', () => {
+    setTimeout(() =>{clearCell.classList.remove("toggleEffect")}, 200)
     cells.forEach(cell => {cell.classList.remove("white")})
 })
