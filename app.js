@@ -60,11 +60,13 @@ rainbow_div.appendChild(content_rainbowBtn)
 content_div.appendChild(content_clear)
 main_div.appendChild(container)
 
-function rainbowEffect(e){
+function rainbowEffect(){
     const rainbow_colors = ['#e81416',' #ffa500','#faeb36','#79c314','#487de7','#4b369d','#70369d']
-    const randomColor = rainbow_colors[Math.floor(Math.random() * rainbow_colors.length)]
-    console.log(e.style)
+    const random_Color = rainbow_colors[Math.floor(Math.random() * rainbow_colors.length)]
+    return random_Color;
 }
+
+
 function removeHoveringEffect(e) {
     this.classList.remove('white')
 }
@@ -106,7 +108,7 @@ eraseBtn.addEventListener('click', () => {
 
     if(eraseing){
         cells.forEach(cell => {
-            cell.onmouseover = () => { cell.classList.remove('white'); }       
+            cell.onmouseover = () => { cell.classList.remove('white'); cell.style.backgroundColor = ""; }       
         });
     }else{
         cells.forEach(cell => {
@@ -120,4 +122,32 @@ const clearCell = document.querySelector('#clear')
 clearCell.addEventListener('click', () => {
     setTimeout(() =>{clearCell.classList.remove("toggleEffect")}, 200)
     cells.forEach(cell => {cell.classList.remove("white")})
+    cells.forEach(cell => { cell.style.backgroundColor = ""})
+
 })
+//toggle rainbow colors on click
+let getRaibowColors = false;
+function toggleRainbow(){
+
+    const rainbowColors = document.querySelector('#randomColor')
+    rainbowColors.addEventListener("click", () =>{
+        getRaibowColors = !getRaibowColors
+
+        cells.forEach(cell => {
+            cell.onmouseover = null;
+            cell.onmousedown = null;                 
+        });
+
+        if(getRaibowColors){
+            cells.forEach(cell =>{
+                cells.forEach(cell => {
+                    cell.onmouseover = () => { const getRandomColor = rainbowEffect(); if(flag) cell.style.backgroundColor = getRandomColor }
+                    cell.onmousedown = () => {  const getRandomColor = rainbowEffect(); cell.style.backgroundColor = getRandomColor; flag = true; }                  
+                });
+            });
+        }else[
+            sketching()
+        ]
+})
+}
+toggleRainbow();
