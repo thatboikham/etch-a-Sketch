@@ -38,6 +38,8 @@ header{
     border-radius: 2px;
     width: 150px;
     margin: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
 }
 .box{
     display: flex;
@@ -52,4 +54,7 @@ header{
 .erase,
 .prompt{
     background-color: #353535;
+}
+.toggleEffect{
+    border: 4px solid white ;
 }
