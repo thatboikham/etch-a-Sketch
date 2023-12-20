@@ -1,28 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Libre+Baskerville:wght@700&family=Pacifico&family=Public+Sans:wght@700&family=Roboto:wght@300&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: #202020;
+}
+header{
+    display: flex;
+    justify-content: center;
+    font-family: 'Public Sans', sans-serif;
+    padding: 8px;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(32, 16px);
 }
 .main{
-    display: flex;
-    width: 160px;
-    margin: auto;
-    flex-wrap: wrap;
-    align-items: center;
+    border: 1px solid white;
 }
 .card{
     width: 16px;
     height: 16px;
-    background-color: blue;
+    background-color: black;
 }
-.red{
-    background-color: red;
+.white{
+    background-color: white;
 }
-.prompt{
-    background-color: #488bdb;
+.btn{
+    background-color: #ff007f;
     border: none;
-    font-size: 10px;
+    font-size: 12px;
     color: #ffffff;
-    padding: 8px;
+    padding: 4px;
     border-radius: 2px;
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.box{
+    display: flex;
+    gap: 50px;
+}
+.content{
+    width: 200px;
+    margin-left: 8px;
+    background-color: #353535;
+}
+.rainbow,
+.erase,
+.prompt{
+    background-color: #353535;
+}
+.toggleEffect{
+    border: 4px solid white ;
 }
